@@ -10,14 +10,13 @@
   },
   "dependencies": {
     "@chec/commerce.js": "^2.8.0",
-    "@mui/icons-material": "^5.11.0",
-    "@mui/material": "^5.11.6",
     "@stripe/react-stripe-js": "^1.16.4",
     "@stripe/stripe-js": "^1.46.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
-    "router-dom": "^2.2.10"
+    "router-dom": "^2.2.10",
+    "sass": "^1.57.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
