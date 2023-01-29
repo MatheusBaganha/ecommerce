@@ -18,6 +18,14 @@ const products = [
     image:
       'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
   },
+  {
+    id: 3,
+    name: 'Tablet',
+    description: 'Tablet with 16GB RAM.',
+    price: 'R$ 1200,00',
+    image:
+      'https://images.unsplash.com/photo-1527698266440-12104e498b76?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+  },
 ];
 
 const Products = () => {

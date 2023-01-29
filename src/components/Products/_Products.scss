@@ -4,9 +4,4 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-
-    @include device(mobile) {
-      margin: 0 42px;
-    }
-  
 }
