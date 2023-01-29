@@ -1,0 +1,46 @@
+.containerNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  border-bottom: 1px solid lightgray;
+
+  .logoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    img {
+      // code for background and border radius when we find the right icon
+    }
+  }
+
+  .containerCartSvg {
+    position: relative;
+   
+    .containerSvg {
+      background-color: whitesmoke;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      padding: 8px;
+    }
+  }
+
+  .numerOfCartItems {
+    display: block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    font-weight: bold;
+    text-align: center;
+    background-color: red;
+    color: white;
+    position: absolute;
+    right: -8px;
+    top: -3px;
+  }
+}

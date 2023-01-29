@@ -8,9 +8,6 @@
   box-shadow: 0 6px 6px rgba(0, 0, 0, .15);
   border-radius: 4px;
   background-color: whitesmoke;
-  @include device(smallPc) {
-    margin: 28px auto;
-  }
   @include device(mobile) {
     width: 300px;
   }
