@@ -1,34 +1,8 @@
 import React from 'react';
 import Product from './Product/Product';
+import { ProductsProps } from '../../types/types';
 
-const products = [
-  {
-    id: 1,
-    name: 'Shoes',
-    description: 'Running Shoes.',
-    price: 'R$ 79,99',
-    image:
-      'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-  },
-  {
-    id: 2,
-    name: 'Apple Macbook',
-    description: 'Apple Macbok is the fastest.',
-    price: 'R$ 5400,00',
-    image:
-      'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-  },
-  {
-    id: 3,
-    name: 'Tablet',
-    description: 'Tablet with 16GB RAM.',
-    price: 'R$ 1200,00',
-    image:
-      'https://images.unsplash.com/photo-1527698266440-12104e498b76?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-  },
-];
-
-const Products = () => {
+const Products = ({ products }: ProductsProps) => {
   return (
     <main className="containerGeralProducts">
       {products.map((product) => {
