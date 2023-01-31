@@ -3,36 +3,37 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 420px;
+  max-width: 375px;
   margin: 28px auto;
   box-shadow: 0 6px 6px rgba(0, 0, 0, .15);
   border-radius: 4px;
   background-color: whitesmoke;
-  @include device(mobile) {
-    width: 300px;
-  }
-
-  .containerCardImageProduct {
-    max-width: 420px;
-
-    @include device(tablet) {
+   @include device(tablet) {
       max-width: 350px;
     }
-
     @include device(mobile) {
-      max-width: 300px;
+      width: 280px;
+    }
+
+  .containerCardImageProduct {
+    width: 375px;
+    @include device(tablet) {
+      max-width: 100%;
     }
 
     img {
       background-position: center;
       border-radius: 4px;
+      width: 375px;
       max-height: 250px;
-
       @include device(smallPc) {
         max-height: 400px;
       }
+      @include device(tablet) {
+        max-width: 100%;
+      }
       @include device(mobile) {
-        max-width: 300px;
+        max-width: 280px;
       }
     }
   }
@@ -43,13 +44,9 @@
     align-items: baseline;
     padding: 12px;
     width: 94%;
-    @include device(smallPc) {
-
-    }
-
+ 
     .productName {
       font-size: 1.25rem;
-      
     }
 
     .productPrice {
@@ -65,7 +62,6 @@
     width: 95%;
     padding-bottom: 42px;
     position: relative;
-
     
     .productDescription {
       max-width: 40ch;
@@ -84,6 +80,4 @@
       cursor: pointer;
     }
   }
-
-
 }
