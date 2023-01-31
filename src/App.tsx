@@ -2,11 +2,12 @@ import React from 'react';
 import Products from './components/Products/Products';
 import Navbar from './components/Navbar/Navbar';
 import { commerce } from './lib/commerce';
-import { Product } from '@chec/commerce.js/types/product';
 import { ProductTypes } from './types/types';
+import { Cart } from '@chec/commerce.js/types/cart';
 
 function App() {
   const [products, setProducts] = React.useState<ProductTypes[]>([]);
+  const [cart, setCart] = React.useState({} as Cart);
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
@@ -14,14 +15,27 @@ function App() {
     setProducts(data as ProductTypes[]);
   };
 
+  const fetchCart = async () => {
+    setCart(await commerce.cart.retrieve());
+  };
+
+  const addToCart = async (productId: string, quantity: number) => {
+    const item: unknown = await commerce.cart.add(productId, quantity);
+    if (item) {
+      setCart(item as Cart);
+    }
+  };
+
   React.useEffect(() => {
     fetchProducts();
+    fetchCart();
   }, []);
+  console.log(cart);
 
   return (
     <>
-      <Navbar />
-      <Products products={products} />
+      <Navbar totalItems={cart.total_items} />
+      <Products products={products} onAddToCart={addToCart} />
     </>
   );
 }

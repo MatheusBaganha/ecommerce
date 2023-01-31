@@ -19,10 +19,18 @@ export type ProductTypes = Product & {
   };
 };
 
-export type ProductProps = {
+export type CartButtonProps = {
+  onAddToCart: (productId: string, quantity: number) => Promise<void>;
+};
+
+export type ProductProps = CartButtonProps & {
   product: ProductTypes;
 };
 
-export type ProductsProps = {
+export type ProductsProps = CartButtonProps & {
   products: Array<ProductTypes>;
+};
+
+export type NavBarProps = {
+  totalItems: number;
 };

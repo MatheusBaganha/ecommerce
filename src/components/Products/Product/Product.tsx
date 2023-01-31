@@ -1,7 +1,7 @@
 import { ProductProps } from '../../../types/types';
 import CartButton from './CartButton';
 
-const Product = ({ product }: ProductProps) => {
+const Product = ({ product, onAddToCart }: ProductProps) => {
   return (
     <article className="containerCardProduct">
       <div className="containerCardImageProduct">
@@ -15,7 +15,9 @@ const Product = ({ product }: ProductProps) => {
         <p className="productDescription">
           {product.description.replace(/<p>(.*?)<\/p>/g, '$1')}
         </p>
-        <CartButton />
+        <div onClick={() => onAddToCart(product.id, 1)}>
+          <CartButton />
+        </div>
       </div>
     </article>
   );
