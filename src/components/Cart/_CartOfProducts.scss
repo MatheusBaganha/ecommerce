@@ -1,0 +1,108 @@
+.containerCart {
+  padding: 64px 28px 28px 36px;
+  @include device(tablet) {
+    padding: 48px 18px 28px 18px;
+  }
+
+  .cartTitle {
+    font-size: 2rem;
+    @include device(mobile) {
+      font-size: 1.3rem;
+    }
+  }
+
+  .cardActions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    color: #524252;
+    gap: 32px;
+    padding: 18px 0;
+
+    .cartItemButtons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-left: 16px;
+
+      .minusAndPlusButton {
+        display: block;
+        width: 18px;
+        height: 18px;
+        border: 1px solid white;
+        background-color: whitesmoke;
+        color: inherit;
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+        line-height: 0px;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+
+      .quantity {
+        color: #524252;
+      }
+    }
+
+    .removeButton {
+      background-color: red;
+      border: none;
+      border-radius: 4px;
+      padding: .5rem 1.2rem;
+      font-size: 0.9rem;
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  .containerButtons {
+    color: white;
+    display: flex;
+    gap: 18px;
+    @include device(mobile) {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .emptyButton {
+      background-color: red;
+      color: inherit;
+      border: none;
+      border-radius: 4px;
+      padding: .5rem 1.2rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .checkoutButton {
+      background-color: blue;
+      color: inherit;
+      border: none;
+      border-radius: 4px;
+      padding: .5rem 1.2rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+  }
+
+  .cardDetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 28px 36px 16px 36px;
+    @include device(smallPc) {
+      flex-direction: column;
+      gap: 32px;
+      padding: 28px 18px 16px 18px;
+    }
+
+    .subtotal {
+      font-size: 2rem;
+      @include device(mobile) {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

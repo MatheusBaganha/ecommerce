@@ -1,4 +1,6 @@
+import { Cart } from '@chec/commerce.js/types/cart';
 import { Product } from '@chec/commerce.js/types/product';
+import { LineItem } from '@chec/commerce.js/types/line-item';
 
 export type ProductTypes = Product & {
   image: {
@@ -33,4 +35,17 @@ export type ProductsProps = CartButtonProps & {
 
 export type NavBarProps = {
   totalItems: number;
+};
+
+export type CartProps = {
+  cart: Cart;
+};
+
+export type CartItemProps = {
+  // item: LineItem;
+  item: unknown;
+};
+
+export type ProductInfoProps = {
+  item: ProductTypes;
 };

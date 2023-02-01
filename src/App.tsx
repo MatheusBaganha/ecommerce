@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import { commerce } from './lib/commerce';
 import { ProductTypes } from './types/types';
 import { Cart } from '@chec/commerce.js/types/cart';
+import CartOfProducts from './components/Cart/CartOfProducts';
 
 function App() {
   const [products, setProducts] = React.useState<ProductTypes[]>([]);
@@ -35,7 +36,8 @@ function App() {
   return (
     <>
       <Navbar totalItems={cart.total_items} />
-      <Products products={products} onAddToCart={addToCart} />
+      {/* <Products products={products} onAddToCart={addToCart} /> */}
+      <CartOfProducts cart={cart} />
     </>
   );
 }
