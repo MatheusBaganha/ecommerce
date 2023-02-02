@@ -42,10 +42,20 @@ export type CartProps = {
 };
 
 export type CartItemProps = {
-  // item: LineItem;
   item: unknown;
 };
 
 export type ProductInfoProps = {
   item: ProductTypes;
+};
+
+export type ContextCommerceTypes = {
+  products: ProductTypes[];
+  cart: Cart;
+  addToCart: (productId: string, quantity: number) => Promise<void>;
+  removeFromCart: (productId: string) => Promise<void>;
+  emptyCart: () => Promise<void>;
+  updateCartQuantity: (productId: string, quantity: number) => Promise<void>;
+  fetchCart: () => Promise<void>;
+  fetchProducts: () => Promise<void>;
 };
