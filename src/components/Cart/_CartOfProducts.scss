@@ -11,6 +11,18 @@
     }
   }
 
+  .emptyCartMessage {
+    text-align: center;
+    margin: 128px auto 32px auto;
+
+    a {
+      font-weight: bold;
+      &:hover {
+        color: #524252;
+      }
+    }
+  }
+
   .cardActions {
     display: flex;
     justify-content: flex-start;

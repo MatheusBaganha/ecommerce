@@ -1,13 +1,18 @@
+import React from 'react';
+import { commerceContext } from '../../context/ContextCommerce';
 import { CartProps } from '../../types/types';
 import CartItem from './CartItem/CartItem';
 import { Link } from 'react-router-dom';
 
 const CartOfProducts = ({ cart }: CartProps) => {
+  const { emptyCart } = React.useContext(commerceContext);
+
   const EmptyCart = () => {
     return (
-      <Link to="/">
-        <p>Não há produtos no carrinho. Clique aqui para adicionar produtos.</p>
-      </Link>
+      <p className="emptyCartMessage">
+        Não há produtos no carrinho.
+        <Link to="/"> Clique aqui para adicionar produtos.</Link>
+      </p>
     );
   };
 
@@ -21,10 +26,12 @@ const CartOfProducts = ({ cart }: CartProps) => {
         </div>
         <div className="cardDetails">
           <h4 className="subtotal">
-            Subtotal: {cart.subtotal.formatted_with_symbol}
+            Total: {cart.subtotal.formatted_with_symbol}
           </h4>
           <div className="containerButtons">
-            <button className="emptyButton">ESVAZIAR CARRINHO</button>
+            <button className="emptyButton" onClick={emptyCart}>
+              ESVAZIAR CARRINHO
+            </button>
             <button className="checkoutButton">CHECKOUT</button>
           </div>
         </div>
