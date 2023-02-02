@@ -1,10 +1,11 @@
 import React from 'react';
-import Products from './components/Products/Products';
 import Navbar from './components/Navbar/Navbar';
 import { commerce } from './lib/commerce';
 import { ProductTypes } from './types/types';
 import { Cart } from '@chec/commerce.js/types/cart';
 import CartOfProducts from './components/Cart/CartOfProducts';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Products from './components/Products/Products';
 
 function App() {
   const [products, setProducts] = React.useState<ProductTypes[]>([]);
@@ -34,11 +35,16 @@ function App() {
   console.log(cart);
 
   return (
-    <>
+    <BrowserRouter>
       <Navbar totalItems={cart.total_items} />
-      {/* <Products products={products} onAddToCart={addToCart} /> */}
-      <CartOfProducts cart={cart} />
-    </>
+      <Routes>
+        <Route
+          path="/"
+          element={<Products products={products} onAddToCart={addToCart} />}
+        />
+        <Route path="/cart" element={<CartOfProducts cart={cart} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

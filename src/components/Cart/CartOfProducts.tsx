@@ -1,9 +1,14 @@
 import { CartProps } from '../../types/types';
 import CartItem from './CartItem/CartItem';
+import { Link } from 'react-router-dom';
 
 const CartOfProducts = ({ cart }: CartProps) => {
   const EmptyCart = () => {
-    return <p>Não há produtos no carrinho.</p>;
+    return (
+      <Link to="/">
+        <p>Não há produtos no carrinho. Clique aqui para adicionar produtos.</p>
+      </Link>
+    );
   };
 
   const FilledCart = () => {
