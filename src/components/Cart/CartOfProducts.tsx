@@ -32,7 +32,9 @@ const CartOfProducts = ({ cart }: CartProps) => {
             <button className="emptyButton" onClick={emptyCart}>
               ESVAZIAR CARRINHO
             </button>
-            <button className="checkoutButton">CHECKOUT</button>
+            <button className="checkoutButton">
+              <Link to={'/checkout'}>CHECKOUT</Link>
+            </button>
           </div>
         </div>
       </>

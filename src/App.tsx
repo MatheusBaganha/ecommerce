@@ -4,6 +4,7 @@ import CartOfProducts from './components/Cart/CartOfProducts';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Products from './components/Products/Products';
 import { commerceContext } from './context/ContextCommerce';
+import Checkout from './components/CheckoutForm/Checkout/Checkout';
 
 function App() {
   const { fetchProducts, fetchCart, addToCart, cart, products } =
@@ -23,6 +24,7 @@ function App() {
           element={<Products products={products} onAddToCart={addToCart} />}
         />
         <Route path="/cart" element={<CartOfProducts cart={cart} />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
   );
