@@ -1,6 +1,6 @@
 import { Cart } from '@chec/commerce.js/types/cart';
 import { Product } from '@chec/commerce.js/types/product';
-import { LineItem } from '@chec/commerce.js/types/line-item';
+import { FieldError } from 'react-hook-form';
 
 export type ProductTypes = Product & {
   image: {
@@ -45,6 +45,10 @@ export type CartItemProps = {
   item: unknown;
 };
 
+export type CheckoutProps = {
+  cart: unknown;
+};
+
 export type ProductInfoProps = {
   item: ProductTypes;
 };
@@ -58,4 +62,14 @@ export type ContextCommerceTypes = {
   updateCartQuantity: (productId: string, quantity: number) => Promise<void>;
   fetchCart: () => Promise<void>;
   fetchProducts: () => Promise<void>;
+};
+
+export type FormInputProps = {
+  name: string;
+  label: string;
+  type: string;
+  register: any;
+  rules: unknown;
+  required?: boolean;
+  placeholder?: string;
 };

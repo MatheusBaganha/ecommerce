@@ -2,11 +2,31 @@ import React from 'react';
 import Confirmation from '../Confirmation';
 import AdressForm from '../AdressForm';
 import PaymentForm from '../PaymentForm';
+import { commerce } from '../../../lib/commerce';
+import { CheckoutProps } from '../../../types/types';
+import { Cart } from '@chec/commerce.js/types/cart';
+import { CheckoutToken } from '@chec/commerce.js/types/checkout-token';
 
 const steps = ['Endereço de Entrega', 'Detalhes do Pagamento'];
 
-const Checkout = () => {
+const Checkout = ({ cart }: CheckoutProps) => {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [checkoutToken, setCheckoutToken] = React.useState<CheckoutToken>();
+  const cartType = cart as Cart;
+
+  React.useEffect(() => {
+    const generateToken = async () => {
+      try {
+        const token = await commerce.checkout.generateToken(cartType.id, {
+          type: 'cart',
+        });
+        console.log(token);
+        setCheckoutToken(token);
+      } catch (error) {}
+    };
+
+    generateToken();
+  }, [cart]);
 
   function handleStep(currentIndexStep: number) {
     if (currentIndexStep === 0) {
@@ -17,14 +37,23 @@ const Checkout = () => {
     }
   }
 
-  const Form = () => (activeStep === 0 ? <AdressForm /> : <PaymentForm />);
+  const Form = () =>
+    activeStep === 0 ? (
+      <AdressForm checkoutToken={checkoutToken!} />
+    ) : (
+      <PaymentForm />
+    );
 
   return (
     <main className="checkoutContainer">
       <h2 className="checkoutTitle">Checkout</h2>
       <div className="containerSteps">
         {steps.map((step, index) => (
-          <div className="eachStep" onClick={() => handleStep(index)}>
+          <div
+            key={step}
+            className="eachStep"
+            onClick={() => handleStep(index)}
+          >
             <span
               className={`numberStep ${
                 activeStep === index || activeStep === 2 ? 'active' : ' '
@@ -36,7 +65,11 @@ const Checkout = () => {
           </div>
         ))}
       </div>
-      {activeStep === steps.length ? <Confirmation /> : <Form />}
+      {activeStep === steps.length ? (
+        <Confirmation />
+      ) : (
+        checkoutToken && <Form />
+      )}
     </main>
   );
 };

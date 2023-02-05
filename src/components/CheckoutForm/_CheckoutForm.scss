@@ -1,0 +1,51 @@
+.containerAdressForm {
+  margin: 28px 36px;
+}
+
+.tituloForm {
+  font-size: 1.2rem;
+  margin-bottom: 22px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px 32px;
+  
+  .label {
+    font-size: 0.8rem;
+
+    &::after {
+      content: '*';
+      color: red;
+      font-size: 0.7rem;
+      position: relative;
+      right: -3px;
+    }
+  }
+
+  .input {
+    display: block;
+    width: 90%;
+    height: 24px;
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, .1);
+    margin-top: 6px;
+    padding-left: 6px;
+    cursor: pointer;
+
+    &:hover, &:focus {
+      border: 1px solid lightblue;
+      background-color: aliceblue;
+    }
+
+    &.select {
+      width: 94%;
+    }
+  
+  }
+}

@@ -24,7 +24,7 @@ function App() {
           element={<Products products={products} onAddToCart={addToCart} />}
         />
         <Route path="/cart" element={<CartOfProducts cart={cart} />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout" element={<Checkout cart={cart} />} />
       </Routes>
     </BrowserRouter>
   );
