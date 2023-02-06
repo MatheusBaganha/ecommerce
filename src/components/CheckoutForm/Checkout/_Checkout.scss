@@ -58,4 +58,32 @@
       }
     }
   }
+
+  .eachItemSummary {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+
+
+    .productName {
+      margin: 6px 0;
+
+    }
+    .productQuantity {
+      display: block;
+      color: gray;
+      margin-bottom: 12px;
+    }
+  }
+
+  .containerTotal {
+    margin: 12px 0;
+    padding-bottom: 18px;
+    .total {
+      display: block;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+  }
 }

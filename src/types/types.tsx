@@ -2,6 +2,10 @@ import { Cart } from '@chec/commerce.js/types/cart';
 import { Product } from '@chec/commerce.js/types/product';
 import { CheckoutToken } from '@chec/commerce.js/types/checkout-token';
 
+interface newCheckoutToken extends CheckoutToken {
+  total?: any;
+}
+
 export type ProductTypes = Product & {
   image: {
     created_at: number;
@@ -67,6 +71,15 @@ export type ContextCommerceTypes = {
 export type AdressFormProps = {
   checkoutToken: CheckoutToken;
   next: (data: FormData) => void;
+};
+
+export type PaymentFormProps = {
+  shippingData: FormData;
+  checkoutToken: CheckoutToken;
+};
+
+export type ReviewProps = {
+  checkoutToken: newCheckoutToken;
 };
 
 export type FormInputProps = {

@@ -3,7 +3,7 @@ import Confirmation from '../Confirmation';
 import AdressForm from '../AdressForm';
 import PaymentForm from '../PaymentForm';
 import { commerce } from '../../../lib/commerce';
-import { CheckoutProps } from '../../../types/types';
+import { CheckoutProps, FormData } from '../../../types/types';
 import { Cart } from '@chec/commerce.js/types/cart';
 import { CheckoutToken } from '@chec/commerce.js/types/checkout-token';
 
@@ -21,7 +21,6 @@ const Checkout = ({ cart }: CheckoutProps) => {
         const token = await commerce.checkout.generateToken(cartType.id, {
           type: 'cart',
         });
-        console.log(token);
         setCheckoutToken(token);
       } catch (error) {}
     };
@@ -56,7 +55,7 @@ const Checkout = ({ cart }: CheckoutProps) => {
     activeStep === 0 ? (
       <AdressForm checkoutToken={checkoutToken!} next={next} />
     ) : (
-      <PaymentForm shippingData={shippingData} />
+      <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken!} />
     );
 
   return (

@@ -90,7 +90,7 @@ const AdressForm = ({ checkoutToken, next }: AdressFormProps) => {
   const { register, handleSubmit } = useForm<FormData>();
 
   return (
-    <div className="containerAdressForm">
+    <div className="containerForm">
       <h2 className="tituloForm">Endereço de Entrega</h2>
       <form
         className="form"
