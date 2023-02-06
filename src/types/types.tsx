@@ -1,6 +1,6 @@
 import { Cart } from '@chec/commerce.js/types/cart';
 import { Product } from '@chec/commerce.js/types/product';
-import { FieldError } from 'react-hook-form';
+import { CheckoutToken } from '@chec/commerce.js/types/checkout-token';
 
 export type ProductTypes = Product & {
   image: {
@@ -64,12 +64,36 @@ export type ContextCommerceTypes = {
   fetchProducts: () => Promise<void>;
 };
 
+export type AdressFormProps = {
+  checkoutToken: CheckoutToken;
+  next: (data: FormData) => void;
+};
+
 export type FormInputProps = {
   name: string;
   label: string;
   type: string;
   register: any;
-  rules: unknown;
-  required?: boolean;
   placeholder?: string;
 };
+
+export type FormSelectProps = {
+  name: string;
+  label: string;
+  register: any;
+  value: any;
+  onChange: any;
+  options: any;
+};
+
+export interface FormData {
+  name: string;
+  lastName: string;
+  adress: string;
+  email: string;
+  city: string;
+  cep: string;
+  country: string;
+  subdivision: string;
+  options: string;
+}

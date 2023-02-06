@@ -12,6 +12,7 @@ const steps = ['Endereço de Entrega', 'Detalhes do Pagamento'];
 const Checkout = ({ cart }: CheckoutProps) => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [checkoutToken, setCheckoutToken] = React.useState<CheckoutToken>();
+  const [shippingData, setShippingData] = React.useState({} as FormData);
   const cartType = cart as Cart;
 
   React.useEffect(() => {
@@ -37,11 +38,25 @@ const Checkout = ({ cart }: CheckoutProps) => {
     }
   }
 
+  function next(data: FormData) {
+    setShippingData(data);
+    console.log(data);
+    nextStep();
+  }
+
+  function nextStep() {
+    setActiveStep((previousStep) => previousStep + 1);
+  }
+
+  function backStep() {
+    setActiveStep((previousStep) => previousStep - 1);
+  }
+
   const Form = () =>
     activeStep === 0 ? (
-      <AdressForm checkoutToken={checkoutToken!} />
+      <AdressForm checkoutToken={checkoutToken!} next={next} />
     ) : (
-      <PaymentForm />
+      <PaymentForm shippingData={shippingData} />
     );
 
   return (

@@ -5,11 +5,8 @@ const FormInput = ({
   name,
   type,
   label,
-  required,
   register,
-  rules,
   placeholder,
-  ...props
 }: FormInputProps) => {
   return (
     <div>
@@ -20,9 +17,8 @@ const FormInput = ({
         className="input"
         type={type}
         id={name}
-        {...register(name, rules)}
+        {...register(name, { required: true })}
         placeholder={placeholder}
-        {...props}
       />
     </div>
   );
