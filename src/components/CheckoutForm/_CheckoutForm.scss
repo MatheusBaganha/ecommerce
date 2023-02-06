@@ -53,17 +53,6 @@
     width: 205%;
     margin: 28px 0;
 
-    .previous {
-      outline: none;
-      border: 1px solid lightgray;
-      color: black;
-      background-color: whitesmoke;
-      font-size: 0.9rem;
-      cursor: pointer;
-      border-radius: 4px;
-      padding: .5rem 1.2rem;
-    }
-
     .next {
       background-color: blue;
       color: white;
@@ -75,4 +64,15 @@
       //Remove and create the component
     }
   }
+}
+
+.previous {
+  outline: none;
+  border: 1px solid lightgray;
+  color: black;
+  background-color: whitesmoke;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: .5rem 1.2rem;
 }

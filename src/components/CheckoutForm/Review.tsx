@@ -21,8 +21,8 @@ const Review = ({ checkoutToken }: ReviewProps) => {
               </span>
             </li>
           ))}
-        <li className="containerTotal">
-          <h4>Total</h4>
+        <li className="containerTotal eachItemSummary">
+          <h3>Total</h3>
           <span className="total">
             {checkoutToken && checkoutToken.total.formatted_with_symbol}
           </span>

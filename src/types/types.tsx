@@ -1,6 +1,8 @@
 import { Cart } from '@chec/commerce.js/types/cart';
 import { Product } from '@chec/commerce.js/types/product';
 import { CheckoutToken } from '@chec/commerce.js/types/checkout-token';
+import { CheckoutCapture } from '@chec/commerce.js/types/checkout-capture';
+import { CheckoutCaptureResponse } from '@chec/commerce.js/types/checkout-capture-response';
 
 interface newCheckoutToken extends CheckoutToken {
   total?: any;
@@ -51,6 +53,12 @@ export type CartItemProps = {
 
 export type CheckoutProps = {
   cart: unknown;
+  order: CheckoutCaptureResponse;
+  onCaptureCheckout: (
+    checkoutTokenId: string,
+    newOrder: CheckoutCapture,
+  ) => Promise<void>;
+  error: string;
 };
 
 export type ProductInfoProps = {
@@ -60,6 +68,7 @@ export type ProductInfoProps = {
 export type ContextCommerceTypes = {
   products: ProductTypes[];
   cart: Cart;
+  setCart: React.Dispatch<React.SetStateAction<Cart>>;
   addToCart: (productId: string, quantity: number) => Promise<void>;
   removeFromCart: (productId: string) => Promise<void>;
   emptyCart: () => Promise<void>;
@@ -75,7 +84,14 @@ export type AdressFormProps = {
 
 export type PaymentFormProps = {
   shippingData: FormData;
-  checkoutToken: CheckoutToken;
+  checkoutToken: newCheckoutToken;
+  backStep: () => void;
+  nextStep: () => void;
+  onCaptureCheckout: (
+    checkoutTokenId: string,
+    newOrder: CheckoutCapture,
+  ) => Promise<void>;
+  timeOut: () => void;
 };
 
 export type ReviewProps = {

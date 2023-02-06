@@ -56,6 +56,7 @@ export const ContextCommerce = ({ children }: { children: ReactNode }) => {
       value={{
         products,
         cart,
+        setCart,
         addToCart,
         removeFromCart,
         emptyCart,
