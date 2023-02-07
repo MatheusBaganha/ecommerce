@@ -4,15 +4,29 @@
   margin: 92px auto;
   box-shadow: 0 6px 6px rgba(0, 0, 0, .15);
   border-radius: 4px;
+  @include device(tablet) {
+    width: 300px;
+  }
+  
   .checkoutTitle {
     text-align: center;
     padding: 18px 0;
     font-size: 1.5rem;
+    max-width: max-content;
+    margin: 0 auto;
+    @include device(tablet) {
+      font-size: 1.3rem;
+    }
   }
 
   .containerSteps {
     display: flex;
     justify-content: center;
+    @include device(tablet) {
+      width: max-content;
+      margin: 0 auto;
+    }
+
     .eachStep {
       margin-bottom: 18px;
       cursor: pointer;
@@ -27,6 +41,9 @@
         margin: 0 12px;
         position: relative;
         top: -3px;
+        @include device(tablet) {
+            width: 28px;
+        }
       }
 
       .numberStep {
@@ -41,7 +58,14 @@
         font-size: 0.8rem;
         line-height: 18px;
         margin-right: 6px;
-
+        @include device(tablet) {
+          width: 12px;
+          height: 12px;
+          font-size: 0.7rem;
+          line-height: 12px;
+          margin-right: 3px;
+        }
+     
         &.active {
           background-color: blue;
 
@@ -55,8 +79,15 @@
         color: gray;
         font-size: 0.8rem;
         cursor: pointer;
+        @include device(tablet) {
+          font-size: 0.5rem;
+        }
       }
     }
+  }
+
+  .containerItemsSummary {
+    margin: 0 12px;
   }
 
   .eachItemSummary {
@@ -65,15 +96,25 @@
     align-items: baseline;
     width: 100%;
 
-
     .productName {
       margin: 6px 0;
-
+      @include device(tablet) {
+        font-size: 0.8rem;
+      }
     }
     .productQuantity {
       display: block;
       color: gray;
       margin-bottom: 12px;
+      @include device(tablet) {
+        font-size: 0.8rem;
+      }
+    }
+
+    .productPrice {
+      @include device(tablet) {
+        font-size: 0.8rem;
+      }
     }
   }
 
@@ -84,9 +125,21 @@
       display: block;
       font-weight: bold;
       margin: 8px 0;
+      @include device(tablet) {
+        font-size: 1rem;
+      }
     }
   }
 }
+
+.form {
+  @include device(tablet) {
+    display: block;
+    margin: 0 auto;
+    width: 280px;
+  }
+}
+
 
 .animar {
   animation: animar .6s forwards ease-in;

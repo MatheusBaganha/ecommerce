@@ -1,11 +1,16 @@
 .containerForm {
   margin: 28px 36px;
   animation: animar .6s forwards ease-in;
+  @include device(tablet) {
+    width: 300px;
+    margin: 0;
+  }
 }
 
 .tituloForm {
   font-size: 1.2rem;
-  margin-bottom: 22px;
+  max-width: max-content;
+  margin: 28px auto;
 }
 
 .form {
@@ -14,7 +19,11 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px 32px;
-  
+  @include device(tablet) {
+    justify-content: center;
+    grid-template-columns: 1fr;
+  }
+
   .label {
     font-size: 0.8rem;
 
@@ -24,6 +33,13 @@
       font-size: 0.7rem;
       position: relative;
       right: -3px;
+    }
+  }
+
+  div:has(.input) {
+    @include device(tablet) {
+      width: 280px;
+      margin: 0 auto;
     }
   }
 
@@ -38,7 +54,10 @@
     margin-top: 6px;
     padding-left: 6px;
     cursor: pointer;
-
+    @include device(tablet) {
+      width: 95%;
+    }
+  
     &:hover, &:focus {
       border: 1px solid lightblue;
       background-color: aliceblue;
@@ -46,6 +65,9 @@
 
     &.select {
       width: 94%;
+      @include device(tablet) {
+        width: 100%;
+      }
     }
   }
   .containerFormBtns {
@@ -53,27 +75,29 @@
     justify-content: space-between;
     width: 205%;
     margin: 28px 0;
+    @include device(tablet) {
+      width: 90%;
+      flex-direction: column;
+      gap: 12px;
+      margin: 0 auto 28px auto;
+    }
 
     .next {
-      background-color: blue;
       color: white;
-      border: none;
-      border-radius: 4px;
-      padding: .5rem 1.2rem;
-      font-size: 0.9rem;
-      cursor: pointer;
-      //Remove and create the component
     }
   }
 }
 
 .previous {
   outline: none;
-  border: 1px solid lightgray;
+  border: 1px solid #d7d7d7;
   color: black;
-  background-color: whitesmoke;
+  background-color: #ededed;
   font-size: 0.9rem;
   cursor: pointer;
   border-radius: 4px;
   padding: .5rem 1.2rem;
+  &:hover {
+    background-color: #d3d3d3;
+  }
 }

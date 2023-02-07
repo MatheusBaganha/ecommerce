@@ -159,7 +159,7 @@ const AdressForm = ({ checkoutToken, next }: AdressFormProps) => {
           <button className="previous">
             <Link to={'/cart'}>VOLTAR AO CARRINHO</Link>
           </button>
-          <button className="next" type="submit">
+          <button className="checkoutButton next" type="submit">
             PRÓXIMO
           </button>
         </div>

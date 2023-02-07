@@ -61,13 +61,7 @@
     }
 
     .removeButton {
-      background-color: red;
-      border: none;
-      border-radius: 4px;
-      padding: .5rem 1.2rem;
-      font-size: 0.9rem;
       color: white;
-      cursor: pointer;
     }
   }
 
@@ -80,24 +74,7 @@
       gap: 16px;
     }
 
-    .emptyButton {
-      background-color: red;
-      color: inherit;
-      border: none;
-      border-radius: 4px;
-      padding: .5rem 1.2rem;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-    .checkoutButton {
-      background-color: blue;
-      color: inherit;
-      border: none;
-      border-radius: 4px;
-      padding: .5rem 1.2rem;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
+    
   }
 
   .cardDetails {
@@ -118,4 +95,29 @@
       }
     }
   }
+}
+
+  .emptyButton {
+    background-color: #e52d2d;
+    color: inherit;
+    border: none;
+    border-radius: 4px;
+    padding: .5rem 1.2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    &:hover {
+      background-color:#cc2828;
+    }
+}
+  .checkoutButton {
+    background-color: #0000b2;
+    color: inherit;
+    border: none;
+    border-radius: 4px;
+    padding: .5rem 1.2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    &:hover {
+      background-color: #00007f;
+    }
 }

@@ -3,6 +3,7 @@ import { commerceContext } from '../../context/ContextCommerce';
 import { CartProps } from '../../types/types';
 import CartItem from './CartItem/CartItem';
 import { Link } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 const CartOfProducts = ({ cart }: CartProps) => {
   const { emptyCart } = React.useContext(commerceContext);
@@ -41,7 +42,7 @@ const CartOfProducts = ({ cart }: CartProps) => {
     );
   };
 
-  if (!cart.line_items) return <p>Loading...</p>;
+  if (!cart.line_items) return <Loading />;
   return (
     <section className="containerCart">
       <h3 className="cartTitle">Seu Carrinho de Compras</h3>

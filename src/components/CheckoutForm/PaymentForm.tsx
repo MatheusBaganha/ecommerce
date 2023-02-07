@@ -70,14 +70,14 @@ const PaymentForm = ({
         style={{
           content: '',
           display: 'block',
-          width: '100%',
+          width: '90%',
           height: '2px',
-          marginBottom: '32px',
+          margin: '0 auto 32px auto',
           backgroundColor: 'lightgray',
           borderRadius: '4px',
         }}
       ></span>
-      <div>
+      <div className="pagamentoContainer">
         <h3 className="tituloForm">Método de Pagamento</h3>
         <Elements stripe={stripePromise}>
           <ElementsConsumer>
@@ -93,7 +93,11 @@ const PaymentForm = ({
                   <button onClick={backStep} className="previous">
                     Voltar
                   </button>
-                  <button type="submit" disabled={!stripe} className="next">
+                  <button
+                    type="submit"
+                    disabled={!stripe}
+                    className="checkoutButton next"
+                  >
                     Pagar {checkoutToken.total.formatted_with_symbol}
                   </button>
                 </div>

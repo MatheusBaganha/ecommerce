@@ -6,7 +6,7 @@ const Review = ({ checkoutToken }: ReviewProps) => {
   return (
     <>
       <h3 className="tituloForm">Resumo do pedido</h3>
-      <ul>
+      <ul className="containerItemsSummary">
         {checkoutToken &&
           checkoutToken.line_items.map((product) => (
             <li key={product.name} className="eachItemSummary">

@@ -7,6 +7,7 @@ import { Cart } from '@chec/commerce.js/types/cart';
 import { CheckoutToken } from '@chec/commerce.js/types/checkout-token';
 import { Link, useNavigate } from 'react-router-dom';
 import completed from '../../../assets/completed.svg';
+import Loading from '../../Loading/Loading';
 
 const steps = ['Endereço de Entrega', 'Detalhes do Pagamento'];
 
@@ -26,7 +27,11 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }: CheckoutProps) => {
         });
         setCheckoutToken(token);
       } catch (error) {
-        navigate('/');
+        if (activeStep === steps.length) {
+          console.log(error);
+        } else {
+          navigate('/');
+        }
       }
     };
 
@@ -96,7 +101,10 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }: CheckoutProps) => {
         <h4>Referência do Pedido: {order.customer_reference}</h4>
       </div>
     ) : isFinished ? (
-      <div className="animar" style={{ paddingBottom: '64px' }}>
+      <div
+        className="animar"
+        style={{ paddingBottom: '64px', margin: '0 12px' }}
+      >
         <h3
           style={{
             textAlign: 'center',
@@ -118,24 +126,16 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }: CheckoutProps) => {
         </button>
       </div>
     ) : (
-      <div
-        style={{
-          textAlign: 'center',
-          margin: '36px auto',
-          paddingBottom: '18px',
-        }}
-      >
-        Loading...
-      </div>
+      <Loading />
     );
 
   if (error) {
     <h3>Error: {error}</h3>;
   }
   return (
-    <main className="checkoutContainer">
+    <main className="checkoutContainer animar">
       <h2 className="checkoutTitle">Checkout</h2>
-      <div className="containerSteps">
+      <div className="containerSteps animar">
         {steps.map((step, index) => (
           <div
             key={step}
