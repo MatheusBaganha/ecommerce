@@ -77,7 +77,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }: CheckoutProps) => {
 
   let Confirmation = () =>
     order.customer ? (
-      <div>
+      <div className="animar">
         <h3>
           Obrigado por comprar conosco, {order.customer.firstname}{' '}
           {order.customer.lastname}
@@ -96,7 +96,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }: CheckoutProps) => {
         <h4>Referência do Pedido: {order.customer_reference}</h4>
       </div>
     ) : isFinished ? (
-      <div style={{ paddingBottom: '64px' }}>
+      <div className="animar" style={{ paddingBottom: '64px' }}>
         <h3
           style={{
             textAlign: 'center',

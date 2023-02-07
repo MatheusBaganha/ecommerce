@@ -1,5 +1,6 @@
 .containerCart {
   padding: 64px 28px 28px 36px;
+  animation: animar .6s forwards ease-in;
   @include device(tablet) {
     padding: 48px 18px 28px 18px;
   }
