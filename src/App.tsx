@@ -29,16 +29,15 @@ function App() {
 
       refreshCart();
     } catch (error: any) {
+      refreshCart();
       setErrorMessage(error.data.error.message);
     }
   };
 
   const refreshCart = async () => {
     const newCart = await commerce.cart.refresh();
-    if (newCart) {
-      newCart.total_items = 0;
-      setCart(newCart as Cart);
-    }
+    console.log(newCart);
+    setCart(newCart as Cart);
   };
 
   React.useEffect(() => {
