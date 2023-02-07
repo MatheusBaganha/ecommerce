@@ -9,10 +9,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
 
-    img {
-      // code for background and border radius when we find the right icon
+    .logoImage {
+      max-width: 32px;
+      margin-right: 12px;
     }
   }
 

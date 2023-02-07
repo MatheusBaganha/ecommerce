@@ -1,4 +1,4 @@
-import logo from '../../assets/shop.svg';
+import logo from '../../assets/logo.png';
 import { NavBarProps } from '../../types/types';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -10,8 +10,10 @@ const Navbar = ({ totalItems }: NavBarProps) => {
       <nav className="containerNav">
         <Link to="/">
           <div className="logoContainer">
-            <img src={logo} alt="Logo" />
-            <h1>Commerce.js</h1>
+            <div className="logoImage">
+              <img src={logo} alt="Logo" />
+            </div>
+            <h1>E-Commerce</h1>
           </div>
         </Link>
         {location.pathname === '/' && (
